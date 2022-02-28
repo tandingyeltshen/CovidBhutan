@@ -1,0 +1,41 @@
+<div class="customizecontainer">
+  <%= form_with(model: testresult) do |form| %>
+    <% if testresult.errors.any? %>
+      <div style="color: red">
+        <h2><%= pluralize(testresult.errors.count, "error") %> prohibited this testresult from being saved:</h2>
+
+        <ul>
+          <% testresult.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="field inputs" style="display:none">
+      <%= form.label :pid, style: "display: block" %>
+      <%= form.number_field :pid , :value => @pid%>
+    </div>
+
+    <div class="field inputs">
+      <%= form.label :testdate, style: "display: block" %>
+      <%= form.date_field :testdate, :required => true %>
+    </div>
+
+    <div class="field inputs">
+      <%= form.label :test_result, style: "display: block" %>
+      <%# <%= form.number_field :test_result  %>
+      <%= form.select :test_result, options_for_select([['Negative', 0], ['Positive', 1]]) %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :recovered, style: "display: block" %>
+      <%# <%= form.number_field :recovered %> 
+      <%= form.select :recovered, options_for_select([['Not Recovered', 0], ['Recovered', 1]]) %>
+    </div>
+
+    <div class="field inputs">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

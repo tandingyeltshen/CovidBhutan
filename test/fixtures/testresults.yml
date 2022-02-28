@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pid: 1
+  testdate: 2022-02-22
+  test_result: 1
+  recovered: 1
+
+two:
+  pid: 1
+  testdate: 2022-02-22
+  test_result: 1
+  recovered: 1

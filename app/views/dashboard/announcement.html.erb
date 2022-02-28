@@ -1,0 +1,19 @@
+
+<div class="container">
+  <div class="header"> Announcements </div>
+
+  <div id="announcements">
+    <table id="customers">
+    <thead><th>Announcement</th></thead>
+    <tbody>
+      <% @announcements.each do |announcement| %>
+        <tr>
+            <td>Announvement 
+            <br><%= link_to "Show more", announcement %> </td>          
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+  </div>
+
+</div>

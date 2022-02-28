@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="header"> Invited Users </div>
+    <table id="customers">
+        <thead>
+            <th>Email</th>
+            <th>Remove User</th>
+        </thead>
+        <tbody>
+            <% @isolation.each do |i| %>
+                <% if i.id == current_user.id%>
+                <%else%>
+                    <tr>
+                        <td> <%= i.email %> </td>
+                        <td><%= link_to "Cancle User", remove_user_path(:delid => i.id) %></td>
+                    </tr>
+                <%end%>
+            <%end%>
+        </tbody>
+    </table>
+</div>

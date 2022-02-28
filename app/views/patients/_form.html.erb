@@ -1,0 +1,68 @@
+
+<div class="customizecontainer">
+  <%= form_with(model: patient) do |form| %>
+    <% if patient.errors.any? %>
+      <div style="color: red">
+        <ul>
+          <% patient.errors.each do |error| %>
+            <li><%= error.full_message %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="inputs">
+      <%= form.label :profile, style: "display: block" %>
+      <%= form.file_field :profile %>
+    </div>
+
+    <div style="display :none" class="inputs">
+      <%= form.label :created_by, style: "display: block" %>
+      <%= form.number_field :created_by, :value => current_user.id %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :Pacient_CID, style: "display: block" %>
+      <%= form.number_field :p_cid, :required => true %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :Phone_Number, style: "display: block" %>
+      <%= form.number_field :p_phone, :required => true  %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :Full_Name, style: "display: block" %>
+      <%= form.text_field :p_name, :required => true  %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :From_date, style: "display: block" %>
+      <%= form.date_field :from_date, :required => true  %>
+    </div>
+
+    <div class="inputs" style="display :none">
+      <%= form.label :to_date%>
+      <%= form.date_field :to_date %>
+    </div>
+
+    <div class="inputs" style="display :none">
+      <%= form.label :transfer_date, style: "display: block" %>
+      <%= form.date_field :transfer_date %>
+    </div>
+
+    <div class="inputs" style="display :none">
+      <%= form.label :transfer_from, style: "display: block" %>
+      <%= form.number_field :transfer_from %>
+    </div>
+
+    <div class="inputs" style="display :none">
+      <%= form.label :transfer_to, style: "display: block" %>
+      <%= form.number_field :transfer_to %>
+    </div>
+
+    <div class="inputs">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

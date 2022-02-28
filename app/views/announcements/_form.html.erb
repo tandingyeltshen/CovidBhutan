@@ -1,0 +1,27 @@
+<div class="customizecontainer">
+  <%= form_with(model: announcement) do |form| %>
+    <% if announcement.errors.any? %>
+      <div style="color: red">
+        <ul>
+          <% announcement.errors.each do |error| %>
+            <%= error.full_message %><br>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="inputs">
+      <%= form.label :avatar, style: "display: block" %>
+      <%= form.file_field :avatar %>
+    </div>
+
+    <div class="inputs">
+      <%= form.label :announcement, style: "display: block" %>
+      <%= form.text_area :announcement,rows: 20, style: 'width:40%;'  %>
+    </div>
+
+    <div class="inputs">
+      <%= form.submit %>
+    </div>
+  <% end %>
+</div>

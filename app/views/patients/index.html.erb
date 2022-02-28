@@ -1,0 +1,65 @@
+<div class="container">
+  <div class="header"> Patients </div>
+  <div class="editback"> <%= link_to "Add Patient", new_patient_path %> </div><br>
+  
+
+  <table id="customers">
+    <thead><th>Patient Name</th><th>CID</th><th>Phone Number</th><th>More</th><th>Delete</th><th>Transfer</th></thead>
+    <tbody>
+      <% @patients.each do |patient| %>
+        <tr>
+            <td> <%= patient.p_name %> </td>
+
+            <td> <%= patient.p_cid %> </td>
+            
+            <td> <%= patient.p_phone %> </td>
+
+            <td>
+              <%= link_to "View more", patient %>
+            </td>
+
+            <td>
+              <div class="deletbtn">
+                <%= button_to "Delete patient", patient, method: :delete %>
+              </div>
+            </td>
+
+            <td>
+              <%= link_to "Transfer Patient", patient_transfer_path(patient.id) if patient.to_date.nil? %>
+            </td>
+            
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+  <div class="header"> Recovered Patients </div>
+
+  <table id="customers">
+    <thead><th>Patient Name</th><th>CID</th><th>Phone Number</th><th>More</th><th>Delete</th></thead>
+    <tbody>
+      <% @recoveredpatients.each do |patient| %>
+        <tr>
+            <td> <%= patient.p_name %> </td>
+
+            <td> <%= patient.p_cid %> </td>
+            
+            <td> <%= patient.p_phone %> </td>
+
+            <td>
+              <%= link_to "View more", patient %>
+            </td>
+
+            <td>
+              <div class="deletbtn">
+                <%= button_to "Delete patient", patient, method: :delete %>
+              </div>
+            </td>
+            
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>
+
+

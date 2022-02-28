@@ -1,0 +1,60 @@
+
+<div class="container">
+  <div class="editback">
+    <%= link_to "Edit patient", edit_patient_path(@patient) %>
+  </div>
+  <%= render @patient %>
+
+
+  <div class="header"> <%= @patient.p_name%>'s Test Result </div>
+  <% if @patient.has_recovered == 0%>
+      <div class="editback">
+          <%= link_to "Add Test Result", new_testresult_path(:patient => @patient.id) %><br>
+      </div>
+    <%end%>
+
+  <table id="customers">
+    <thead>
+      <th>Testdate</th>
+      <th>Test result</th>
+      <th>Recovered</th>
+      <th>Action</th>
+    </thead>
+    <tbody>
+      <% @testresult.each do |testresult| %>
+        <tr>
+            <td> <%= testresult.testdate %> </td>
+
+            <% if testresult.test_result == 0 %>
+              <td>Negative</td>
+            <% else %>
+              <td> Positive </td>
+            <% end %>
+
+            <% if testresult.recovered == 0 %>
+              <td> Not Recovered</td>
+            <% else%>
+              <td> Recovered </td>
+            <%end%> 
+
+            <td>
+              <% if @patient.has_recovered == 0%>
+                <div class="deletbtn">
+                  <%= button_to "Delete result", testresult_path(testresult.id), method: :delete %>
+                </div>
+              <%end%>
+            </td>
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+  
+   
+  <div style="text-align:center">
+      <%= link_to "Back", patients_path %>
+  </div>
+ 
+
+    
+</div>

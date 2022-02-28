@@ -1,0 +1,2 @@
+class Blockacc < ApplicationRecord
+end

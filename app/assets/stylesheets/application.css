@@ -1,0 +1,334 @@
+*{
+  color:white;
+}
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+    background-color: #ffffff;
+    background-image: url(https://images.ctfassets.net/isq5xwjfoz2m/ZMYdR9pM6Tgy3EfnGN9Oc/878c7b1d01cfa381d4d041a866e8e394/Listing_-_Resource_-_Covid_19_recovery.png?fm=png&w=720&h=406&fit=fill&q=100&f=center);
+    background-size: cover;
+    background-repeat: no-repeat;
+    overflow-x: hidden;
+  }
+  .notice{
+    padding: 10px;
+    color:red;
+    text-align: center;
+    font-weight: bold;
+  }
+  header {
+    background-color: #002252;
+    color:white;
+  }
+
+  .main-nav {
+    height: 90px;
+  }
+
+  span {
+    color: white !important;
+    line-height: 90px;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 30px;
+    font-family: "AstroSpace", sans-serif;
+  }
+
+  .navlinks {
+    list-style: none;
+    float: right;
+    line-height: 90px;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navlinks li {
+    display: inline-block;
+    margin: 0px 20px;
+  }
+
+  .navlinks li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: all 0.3s linear 0s;
+    text-transform: uppercase;
+  }
+
+  .navlinks li a:hover {
+    color: #7ebcb9;
+    padding-bottom: 7px;
+    border-bottom: 2px solid #7ebcb9;
+  }
+
+  li a.contact {
+    background-color: #00adb5;
+    padding: 9px 20px;
+    border-radius: 50px;
+    transition: all 0.3s ease 0s;
+    border-bottom: none;
+  }
+
+  li a.contact:hover {
+    background-color: #047e85;
+    color: white;
+    border-bottom: none;
+  }
+
+  #check {
+    display: none;
+  }
+
+  .menu-btn {
+    font-size: 25px;
+    color: white;
+    float: right;
+    line-height: 90px;
+    margin-right: 40px;
+    display: none;
+    cursor: pointer;
+  }
+
+  @media (max-width: 800px) {
+    body{
+      overflow-x: none;
+    }
+    .navlinks {
+      position: fixed;
+      width: 100%;
+      height: 100vh;
+      text-align: center;
+      transition: all 0.5s;
+      right: -100%;
+      background: #222831;
+    }
+
+    .navlinks li {
+      display: block;
+    }
+
+    .navlinks li a {
+      font-size: 20px;
+    }
+
+    .navlinks li a:hover {
+      border-bottom: none;
+    }
+
+    .menu-btn {
+      display: block;
+    }
+
+    #check:checked ~ .navlinks {
+      right: 0;
+    }
+  }
+
+  @media (max-width: 360px) {
+    .logo {
+      margin-left: 10px;
+      font-size: 25px;
+    }
+
+    .menu-btn {
+      margin-right: 10px;
+      font-size: 25px;
+    }
+
+    .menu-btn:focus {
+      color: blue;
+    }
+  }
+
+
+  /* conainer */
+
+  .container{
+      width: 95%;
+      padding: 1rem;
+      margin:1px auto;
+  }
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    background-color: rgba(1, 38, 94, 0.877);
+    width: 40%;
+    margin: 3px 5px;
+    color:white;
+    border-radius: 5px;
+    border-radius: 5px;
+  }
+  
+  .card-container:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.7);
+
+    
+  }
+  .card-container {
+    padding: 2px 16px;
+    font-size: 20px;
+    transition: .4s;
+    border-radius: 5px;
+    padding: 10px 20px;
+  }
+  .disflex{
+      display: flex;
+      margin:10px;
+      border:1px solid black;
+      padding:10px;
+  }
+  .header{
+      text-align: center;
+      font-size: 30px;
+      font-weight: bold;
+      text-transform: uppercase;
+  }
+  /* end of container */
+  /* table */
+    #customers {
+        margin:10px 40px;
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 95%;
+        text-align:center;
+    }
+    
+    #customers td, #customers th {
+        
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    
+    #customers tr{background-color: #283f7eab;}
+    
+    #customers tr:hover {background-color: rgba(54, 44, 44, 0.39);}
+    
+    #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #0d2077;
+        color: white;
+    }
+  /* end of table */
+
+  .inputs input{
+    color: black;
+    width: 40%;
+    padding: 12px;
+    border: 1px solid rgb(95, 17, 17);
+    border-radius: 4px;
+    resize: vertical;
+    padding-left: 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .inputs input[type=number]{
+    color: black;
+    width: 40%;
+    padding: 12px;
+    border: 1px solid rgb(95, 17, 17);
+    border-radius: 4px;
+    resize: vertical;
+    padding-left: 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .inputs label{
+    font-size: 20px;
+  }
+  .inputs input[type=submit] {
+
+    background-color: #04AA6D;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+
+  .inputs select, select option {
+    color: black;
+    width: 40%;
+    padding: 12px;
+    border: 1px solid rgb(95, 17, 17);
+    border-radius: 4px;
+    resize: vertical;
+    padding-left: 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  .inputs input[type=text_area] {
+    color: black;
+    width: 30%;
+    padding: 12px;
+    border: 1px solid rgb(95, 17, 17);
+    border-radius: 4px;
+    resize: vertical;
+    padding-left: 30px;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
+  
+  .customizecontainer {
+    color: black;
+    width: 70%;
+    margin: 1px auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #99979780;
+    padding: 20px;
+  }
+  .login {
+    margin: 1px auto;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    background-color: #99979780;
+    padding: 20px;
+  }
+  .homecontene{
+    padding: 20px;
+    margin:1px 20px;
+    text-align: justify;
+    font-size: 18px;
+  }
+
+  /* form  */
+  .deletbtn button{
+    padding: 10px 30px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(212, 30, 30);
+    border: 0;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .editback a{
+    padding: 10px 30px;
+    font-weight: bold;
+    color: white;
+    border: 0;
+    border-radius: 5px;
+    background-color: green;
+    cursor: pointer;
+  }
+
+  .addingbtn{
+    text-align: end;
+    margin-right: 50px;
+    font-size: 20px;
+    text-transform: uppercase;
+    cursor: pointer;
+  }
+  .announcement{
+    width: 50%;
+    margin: 1px auto;
+    padding: 20px;
+    background-color: rgba(100, 95, 95, 0.164);
+    border-radius: 20px;
+  }
+
+  /* end of form */

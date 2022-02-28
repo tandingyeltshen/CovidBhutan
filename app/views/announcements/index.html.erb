@@ -1,0 +1,19 @@
+<div class="container">
+    <div class="header"> Announcement </div>
+     <table id="customers">
+        <thead>
+            <th>Announcement</th>
+        </thead>
+        <tbody>
+            <% @announcements.each do |announcement| %>
+                <td><%= render announcement %>
+                <%= link_to "view announcement", announcement %></td>
+            <% end %>
+        </tbody>
+    <div class="addingbtn">
+         <%= link_to "New announcement", new_announcement_path %>
+    </div>
+</div>
+   
+
+

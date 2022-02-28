@@ -1,0 +1,31 @@
+
+<div class="container">
+    <div class="" id="<%= dom_id patient %>"><div>
+    <div class="header" styel="text-iteam: center">
+        <%= image_tag patient.profile%>
+    </div>
+    <div class="header"> Patient detail </div>
+    <table id="customers">
+        <thead>
+            <th>CID</th>
+            <th>Phone Number</th>
+            <th>Name</th>
+            <th>From date:</th>
+            <th>To date:</th>
+        </thead>
+        <tbody>
+          <td><%= patient.p_cid %></td>
+          <td><%= patient.p_phone %></td>
+          <td><%= patient.p_name %></td>
+          <td><%= patient.from_date %></td>
+          <td>
+            <% if patient.to_date.nil? %>
+                Not Recovered
+            <%else%>
+                <%= patient.to_date %>
+            <%end%>
+          
+          </td>
+        </tbody>
+    </table>
+</div>

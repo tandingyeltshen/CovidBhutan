@@ -1,0 +1,59 @@
+<div class="container">
+<div class="header"> Patient Information </div>
+<div class="disflex">
+    
+    <table id="customers" style="text-align:center">
+        <thead>
+            <th>Name</th>
+            <th>Phone Number</th>
+            <th>CID</th>
+            <th>Status</th>
+            <th>Recovererd Date</th>
+            <th>Transfer From</th>
+            <th>Transfer To </th>
+            <th>Transfer Date</th>
+            <th>Image</th>
+        </thead>
+        <tbody>
+            <% @patient.each do |i| %>
+                <tr>
+                    <td> <%= i.p_name %> </td>
+                    <td> <%= i.p_phone %> </td>
+                    <td> <%= i.p_cid %> </td>
+                    
+                    <% if i.has_recovered == 1 %> 
+                        <td> Recovered</td>
+                        <td> <%= i.to_date %></td>
+                    <%else%>
+                        <td> Not Recovered</td>
+                        <td> - </td>
+                    <%end%>
+                    <% if !i.transfer_from.nil? and i.transfer_to.nil?%>
+                        <td>
+                            <% if User.find_by(id:i.transfer_from).nil? %>
+                                User Removed
+                            <% else %> 
+                                <%= User.find_by(id:i.transfer_from).facility_name%> 
+                            <% end %>
+                        </td>
+                        <td>
+                            <% if User.find_by(id:i.created_by).nil? %>
+                                User Removed
+                            <% else %> 
+                                <%= User.find_by(id:i.created_by).facility_name%> 
+                            <% end %>
+                        </td>
+                        <td><%= i.transfer_date %></td>  
+                        
+                    <%else%>
+                        <td>-</td>
+                        <td>-</td>
+                        <td>-</td>                     
+                    <%end%>
+                    <td><%= image_tag i.profile, width: 100,height: 120 %></td>
+                
+                </tr>
+            <%end%>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,68 @@
+<div class="container">
+    <div class="header"> admin page </div>
+    <div class="disflex">
+        <div class="card">
+            <div class="card-container">
+                <h4><b>Total Case: <%= @total_case%></b></h4> 
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-container" style="background-color: orange">
+                <h4><b>Active case: <%= @active%></b></h4> 
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-container" style="background-color: green">
+                <h4><b>Recovered Case: <%= @recovered%></b></h4> 
+            </div>
+        </div>
+    </div>
+    
+    <div class="header">Facility Details</div>
+    <table id="customers">
+        <thead>
+            <th>Facility Name</th>
+            <th>Email</th>
+            <th>Phone Number</th>
+            <th>Address</th>
+            <th>Total Patients</th>
+            <th>Recovererd Patients</th>
+            <th>Not Recovered</th>
+            <th>Remove User</th>
+            <th>Block User</th>
+
+        </thead>
+        <tbody>
+            <% @isolation.each do |i| %>
+                <% if i.id == current_user.id%>
+                <%else%>
+                    <tr>
+                        <td> <%= i.facility_name %> </td>
+                        <td> <%= i.email %> </td>
+                        <td> <%= i.phonenumber %> </td>
+                        <td> <%= i.present_address %> </td>
+                        <td>
+                            <%= Patient.where(:created_by=>i.id).count%>
+                        </td>
+                        <td>
+                            <%= Patient.where(:created_by=>i.id,:has_recovered=>1).count%>
+                        </td>
+                        <td>
+                            <%= Patient.where(:created_by=>i.id,:has_recovered=>0).count%>
+                        </td>
+                        <td>
+                            <%= link_to "Delete User", remove_user_path(:delid=>i.id) %>
+                        </td>
+                        <td>
+                            <% if i.is_blocked == 0 %>
+                                <%= link_to "Block User", block_user_path(:blockid=>i.id) %>
+                            <%else%>
+                                <%= link_to "Unblock User", unblock_user_path(:blockid=>i.id) %>
+                            <%end%>
+                        </td>
+                    </tr>
+                <%end%>
+            <%end%>
+        </tbody>
+    </table>
+</div>

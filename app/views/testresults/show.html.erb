@@ -1,0 +1,8 @@
+<%= render @testresult %>
+
+<div>
+  <%= link_to "Edit this testresult", edit_testresult_path(@testresult) %> |
+  <%= link_to "Back to testresults", testresults_path %>
+
+  <%= button_to "Destroy this testresult", @testresult, method: :delete %>
+</div>

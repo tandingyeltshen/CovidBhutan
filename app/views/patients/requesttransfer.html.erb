@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="header"> Transfer Request Recieved </div>
+
+  <table id="customers">
+    <thead><th>Patient Name</th><th>CID</th><th>Patient Phone Number</th><th>Transfer date</th><th>Transfer from</th><th></th><th></th></thead>
+    <tbody>
+      <% @requesttransfer.each do |patient| %>
+        <tr>
+            <td> <%= patient.p_name %> </td>
+
+            <td> <%= patient.p_cid %> </td>
+            
+            <td> <%= patient.p_phone %> </td>
+
+            <td> <%= patient.transfer_date %> </td>
+            <td> <%= User.find_by(id:patient.created_by).facility_name%> , 
+            <%= User.find_by(id:patient.created_by).phonenumber%>  </td>
+            <td>
+              <%= link_to "approve", patient_transfer_update_path(patient.id) %>
+            </td>
+            <td>
+              <%= link_to "cancle", patient_transfer_cancle_path(patient.id) %>
+            </td>    
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+
+<br>
+  <div class="header"> Transfer Request Sent </div>
+  <table id="customers">
+    <thead><th>Patient Name</th><th>CID</th><th>Patient Phone Number</th><th>Transfer date</th><th>Transfer to</th><th>Transfer from</th><th></th></thead>
+    <tbody>
+      <% @transferrequestsent.each do |trs| %>
+        <tr>
+            <td> <%= trs.p_name %> </td>
+
+            <td> <%= trs.p_cid %> </td>
+            
+            <td> <%= trs.p_phone %> </td>
+
+            <td> <%= trs.transfer_date %> </td>
+
+            <td> <%= User.find_by(id:trs.transfer_to).facility_name%> , 
+            <%= User.find_by(id:trs.created_by).phonenumber%>  </td>  
+
+            <td> <%= User.find_by(id:trs.transfer_from).facility_name%> , 
+            <%= User.find_by(id:trs.transfer_from).phonenumber%>  </td>  
+
+            <td>
+              <%= link_to "CANCLE", patient_transfer_cancle_path(trs.id) %>
+            </td> 
+        </tr>
+      <%end%>
+    </tbody>
+  </table>
+</div>

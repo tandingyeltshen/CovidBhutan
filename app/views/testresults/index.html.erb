@@ -1,0 +1,12 @@
+<h1>Testresults</h1>
+
+<div id="testresults">
+  <% @testresults.each do |testresult| %>
+    <%= render testresult %>
+    <p>
+      <%= link_to "Show this testresult", testresult %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New testresult", new_testresult_path %>

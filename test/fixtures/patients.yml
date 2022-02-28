@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  created_by: 1
+  p_cid: 1
+  p_phone: 1
+  p_name: MyString
+  from_date: 2022-02-22
+  to_date: 2022-02-22
+  transfer_date: 2022-02-22
+  transfer_from: 1
+  transfer_to: 1
+
+two:
+  created_by: 1
+  p_cid: 1
+  p_phone: 1
+  p_name: MyString
+  from_date: 2022-02-22
+  to_date: 2022-02-22
+  transfer_date: 2022-02-22
+  transfer_from: 1
+  transfer_to: 1

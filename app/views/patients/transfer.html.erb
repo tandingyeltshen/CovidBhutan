@@ -1,0 +1,52 @@
+<h2 class="header">Request Patient Transfer</h2>
+<div class="customizecontainer">
+
+    <%= form_with(method: "patient#transferrequest") do |form| %>
+
+
+      <div class="field inputs" style="display :none">
+        <%= form.label :created_by, style: "display: block" %>
+        <%= form.number_field :created_by, :value => current_user.id %>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :p_cid, style: "display: block" %>
+        <%= form.text_field :p_cid, :disabled => true, :value => @patientdetail.p_cid%>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :p_phone, style: "display: block" %>
+        <%= form.text_field :p_phone, :disabled => true, :value => @patientdetail.p_phone%>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :p_name, style: "display: block" %>
+        <%= form.text_field :p_name, :disabled => true, :value => @patientdetail.p_name%>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :from_date, style: "display: block" %>
+        <%= form.text_field :from_date, :disabled => true, :value => @patientdetail.from_date%>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :to_date, style: "display: block" %>
+        <%= form.text_field :to_date, :disabled => true, :value => @patientdetail.to_date%>
+      </div>
+
+      <div class="field inputs" style="display :none">
+        <%= form.label :transfer_from, style: "display: block" %>
+        <%= form.number_field :transfer_from, :value =>current_user.id %>
+      </div>
+
+      <div class="field inputs">
+        <%= form.label :transfer_to, style: "display: block" %>
+        <%= form.text_field :transfer_to %>
+        <%# <%= form.select :transfer_to, User.all.collect{ |p| [p.email, p.id]}, include_blank: true %> 
+      </div>
+
+      <div class="field inputs">
+        <%= form.submit %>
+      </div>
+    <% end %>
+</div>
